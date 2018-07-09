@@ -65,12 +65,23 @@
 
       justify-* is row axis
       align-* is column axis
+
+      //easy way to center 
+      //justify-content: center;
+      //align-items: center;
     */
 
     .container {
       display: grid;
       grid-gap: 20px;
       grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      justify-items: center;
+      align-items: center;
+    }
+
+    .itm {
+      background: white;
     }
   </style>
 </body>

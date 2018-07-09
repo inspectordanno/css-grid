@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>CSS Grid Fundamentals!</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item map_info">Map Info</div>
+    <div class="item something">Something</div>
+    <div class="item map">Map</div>
+    <div class="item tooltip">Tooltip</div>
+    <div class="item scatterplot" >Scatterplot</div>
+    <div class="item abv" >ABV Histogram</div>
+    <div class="item ibu" >IBU Histogram</div>
+  </div>
+  <style>
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 9fr 10fr 8fr; 
+      grid-gap: 20px;
+      grid-template-areas: 
+      "map_info map_info map_info map_info something something"
+      "map map map map tooltip tooltip"
+      ". scatterplot scatterplot scatterplot scatterplot ."
+      "abv abv abv ibu ibu ibu"
+      
+    }
+
+    .map {
+      grid-area: map;
+    }
+
+    .map_info {
+      grid-area: map_info;
+    }
+
+    .something {
+      grid-area: something;
+      display: none;
+    }
+
+    .tooltip {
+      grid-area: tooltip
+    }
+
+    .scatterplot {
+      grid-area: scatterplot
+    }
+
+    .abv {
+      grid-area: abv
+    }
+
+    .ibu {
+      grid-area: ibu
+    }
+    
+
+   
+
+    @media (max-width: 1000px) {
+      .container {
+        grid-template-rows: 10fr 10fr 10fr 10fr 10fr 1fr; 
+        grid-template-areas:
+        "footer footer footer footer footer footer"
+        "map map map map map map"
+        "info info info info info info"
+        "scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot"
+        "abv abv abv abv abv abv"
+        "ibu ibu ibu ibu ibu ibu"
+        
+      }
+    }
+
+  </style>
+
+</body>
+
+</html>
