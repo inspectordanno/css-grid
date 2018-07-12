@@ -10,10 +10,9 @@
 
 <body>
   <div class="container">
-    <div class="item map_info">Map Info</div>
-    <div class="item something">Something</div>
+    <div class="item map_info">1. Click a state on the map to filter beers.</div>
+    <div class="item scatter_info">Hover over a point to reveal info about beer.</div>
     <div class="item map">Map</div>
-    <div class="item tooltip">Tooltip</div>
     <div class="item scatterplot" >Scatterplot</div>
     <div class="item abv" >ABV Histogram</div>
     <div class="item ibu" >IBU Histogram</div>
@@ -22,15 +21,13 @@
 
     .container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 9fr 10fr 8fr; 
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* 10 columns */
+      grid-template-rows: 1fr 5fr 5fr; /* 3 rows */
       grid-gap: 20px;
       grid-template-areas: 
-      "map_info map_info map_info map_info something something"
-      "map map map map tooltip tooltip"
-      ". scatterplot scatterplot scatterplot scatterplot ."
-      "abv abv abv ibu ibu ibu"
-      
+      "map_info map_info map_info map_info map_info map_info scatter_info scatter_info scatter_info scatter_info"
+      "map map map map map map scatterplot scatterplot scatterplot scatterplot"
+      "abv abv abv abv abv ibu ibu ibu ibu ibu";
     }
 
     .map {
@@ -41,25 +38,20 @@
       grid-area: map_info;
     }
 
-    .something {
-      grid-area: something;
-      display: none;
-    }
-
-    .tooltip {
-      grid-area: tooltip
-    }
-
     .scatterplot {
-      grid-area: scatterplot
+      grid-area: scatterplot;
+    }
+
+    .scatter_info {
+      grid-area: scatter_info;
     }
 
     .abv {
-      grid-area: abv
+      grid-area: abv;
     }
 
     .ibu {
-      grid-area: ibu
+      grid-area: ibu;
     }
     
 
@@ -67,20 +59,19 @@
 
     @media (max-width: 1000px) {
       .container {
-        grid-template-rows: 10fr 10fr 10fr 10fr 10fr 1fr; 
+        grid-template-rows: 1fr 10fr 1fr 10fr 10fr 10fr; 
         grid-template-areas:
-        "footer footer footer footer footer footer"
-        "map map map map map map"
-        "info info info info info info"
-        "scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot"
-        "abv abv abv abv abv abv"
-        "ibu ibu ibu ibu ibu ibu"
-        
+        "map_info map_info map_info map_info map_info map_info map_info map_info map_info map_info"
+        "map map map map map map map map map map"
+        "scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info"
+        "scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot"
+        "abv abv abv abv abv abv abv abv abv abv"
+        "ibu ibu ibu ibu ibu ibu ibu ibu ibu ibu";
       }
     }
 
   </style>
-
+  
 </body>
 
 </html>
