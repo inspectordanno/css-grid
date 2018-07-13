@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <div class="item map_info">
-      <div class="item select_state"> 1. Select a state. </div>
+      <div class="item select_state"> 1. Click on a state. </div>
       <div class="item current_state">State selected: Mississippi</div>
       <div class="item select_brewery">2. Hover over a brewery.</div>
     </div>
@@ -41,6 +41,7 @@
 
     .map {
       grid-area: map;
+      background: var(--green);
     }
 
     .map_info {
@@ -51,12 +52,14 @@
       min-height: 100px;
       /* font-size: 10px; */
       justify-items: center;
+      background: var(--green);
     }
 
     .map_info div {
       border: none;
       font-size: 2rem;
       text-align: center;
+      background: var(--green);
     }
 
     .select_state {
@@ -65,12 +68,14 @@
 
     .scatterplot {
       grid-area: scatterplot;
+      background: var(--blue);
     }
 
     .scatter_info {
       grid-area: scatter_info;
       font-size: 2rem;
       /* min-height: 100px; */
+      background: var(--blue);
     }
 
     .abv {
@@ -85,10 +90,12 @@
     .ibu_info {
       grid-area: ibu_info;
       font-size: 2rem;
+      background: var(--pink);
     }
 
     .ibu {
       grid-area: ibu;
+      background: var(--pink);
     }
     
     @media (max-width: 1000px) {
