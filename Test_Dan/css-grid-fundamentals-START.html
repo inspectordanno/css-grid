@@ -10,10 +10,18 @@
 
 <body>
   <div class="container">
-    <div class="item map_info">1. Click a state on the map to filter beers.</div>
-    <div class="item scatter_info">Hover over a point to reveal info about beer.</div>
+    <div class="item map_info">
+      <div class="item select_state"> 1. Select a state. </div>
+      <div class="item current_state">State selected: Mississippi</div>
+      <div class="item select_brewery">2. Hover over a brewery.</div>
+    </div>
+    <div class="item scatter_info">
+      3. Hover over a beer.
+    </div>
     <div class="item map">Map</div>
-    <div class="item scatterplot" >Scatterplot</div>
+    <div class="item scatterplot">Scatterplot</div>
+    <div class="item abv_info">Average alcohol by volume of all beers in Mississippi</div>
+    <div class="item ibu_info">Average IBU (bitterness) of all beers in Mississippi</div>
     <div class="item abv" >ABV Histogram</div>
     <div class="item ibu" >IBU Histogram</div>
   </div>
@@ -21,12 +29,13 @@
 
     .container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* 10 columns */
-      grid-template-rows: 1fr 5fr 5fr; /* 3 rows */
+      grid-template-columns: repeat(10, 1fr); /* 10 columns */
+      grid-template-rows: .5fr 5fr .5fr 5fr; /* 3 rows */
       grid-gap: 20px;
       grid-template-areas: 
       "map_info map_info map_info map_info map_info map_info scatter_info scatter_info scatter_info scatter_info"
       "map map map map map map scatterplot scatterplot scatterplot scatterplot"
+      "abv_info abv_info abv_info abv_info abv_info ibu_info ibu_info ibu_info ibu_info ibu_info"
       "abv abv abv abv abv ibu ibu ibu ibu ibu";
     }
 
@@ -36,6 +45,22 @@
 
     .map_info {
       grid-area: map_info;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      /* justify-content: center; */
+      min-height: 100px;
+      /* font-size: 10px; */
+      justify-items: center;
+    }
+
+    .map_info div {
+      border: none;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .select_state {
+      display: grid;
     }
 
     .scatterplot {
@@ -44,28 +69,39 @@
 
     .scatter_info {
       grid-area: scatter_info;
+      font-size: 2rem;
+      /* min-height: 100px; */
     }
 
     .abv {
       grid-area: abv;
     }
 
+    .abv_info {
+      grid-area: abv_info;
+      font-size: 2rem;
+    }
+
+    .ibu_info {
+      grid-area: ibu_info;
+      font-size: 2rem;
+    }
+
     .ibu {
       grid-area: ibu;
     }
     
-
-   
-
     @media (max-width: 1000px) {
       .container {
-        grid-template-rows: 1fr 10fr 1fr 10fr 10fr 10fr; 
+        grid-template-rows: repeat(4, .5fr 5fr); 
         grid-template-areas:
         "map_info map_info map_info map_info map_info map_info map_info map_info map_info map_info"
         "map map map map map map map map map map"
         "scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info scatter_info"
         "scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot scatterplot"
+        "abv_info abv_info abv_info abv_info abv_info abv_info abv_info abv_info abv_info abv_info"
         "abv abv abv abv abv abv abv abv abv abv"
+        "ibu_info ibu_info ibu_info ibu_info ibu_info ibu_info ibu_info ibu_info ibu_info ibu_info"
         "ibu ibu ibu ibu ibu ibu ibu ibu ibu ibu";
       }
     }
